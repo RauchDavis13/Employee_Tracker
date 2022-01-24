@@ -1,5 +1,4 @@
-INSERT INTO employees
-  (first_name, last_name, role_id, manager_id)
+INSERT INTO employees (first_name, last_name, role_id, manager_id)
 VALUES
   ('James', 'Fraser', 2, 8),
   ('Jack', 'London', 4, 5),
@@ -9,7 +8,7 @@ VALUES
   ('Paolo', 'Pasolini', 11, 7),
   ('Heathcote', 'Williams', 5, 6),
   ('Sandy', 'Powell', 8, 9),
-  ('Emil', 'Zola', 9, NULL),
+  ('Emil', 'Zola', 9, 9),
   ('Sissy', 'Coalpits', 3, 5),
   ('Antoinette', 'Capet', 4, 5),
   ('Samuel', 'Delany', 4, 5),
@@ -52,18 +51,17 @@ VALUES
   ('Senior Management');
 
 INSERT INTO roles
-  (title, department_id, salary)
+  (role_title, departments_id, salary)
 VALUES
   ('Accounts Receivable', 1, 65000),
   ('Accounts Payable', 1, 65000),
-  ('Jr. Developer', 2, 100000),
-  ('Sr. Developer', 2, 175000),
-  ('Engineering Manager', 2, 225000)
-  ('VP Engineering', 6, 250000),
+  ('Jr. Developer', 2, 90000),
+  ('Sr. Developer', 2, 150000),
+  ('Engineering Manager', 2, 200000),
   ('VP Sales', 6, 225000),
   ('VP Finance', 6, 235000),
-  ('CEO', 6, 300000)
+  ('CEO', 6, 300000),
   ('HR Director', 3, 200000),
-  ('Regional Sales Mgr', 5, 195000),
+  ('Regional Sales Mgr', 5, 185000),
   ('Senior Marketing Manager', 4, 200000);
   
