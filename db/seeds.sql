@@ -41,7 +41,7 @@ VALUES
   ('Charlotte', 'Yonge', 4, 5);
   
 
-INSERT INTO departments (name)
+INSERT INTO departments (dept_name)
 VALUES
   ('Accounting'),
   ('Engineering'),

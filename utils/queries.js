@@ -5,13 +5,13 @@ const { title } = require('process');
 
 // view all departments
 const viewDepartments = () => {
-  const sql = `SELECT id, name AS department
-  FROM departments`;
+  const sql = `SELECT * FROM departments`;
 
   db.query(sql, (err, rows) => {
     if (err) console.log({ error: err.message });
-    console.log('\n \n ')
-    cTable(rows);
+    console.table(rows);
+    // console.table(['name'], values);
+   
 });
 }
 
@@ -24,7 +24,7 @@ const viewRoles = () => {
   db.query(sql, (err, rows) => {
       if (err) console.log({ error: err.message });
       console.log('\n \n ')
-      cTable(rows);
+      console.table(rows);
   });
 }
 
@@ -39,7 +39,7 @@ const viewEmployees = () => {
   db.query(sql, (err, rows) => {
       if (err) console.log({ error: err.message });
       console.log('\n \n ')
-      cTable(rows);
+      console.table(rows);
   });
 };
 
@@ -50,7 +50,7 @@ const addDepartment = () => {
   db.query(sql, (err, rows) => {
     if (err) console.log({ error: err.message });
       console.log('\n \n ')
-      cTable(rows);
+      console.table(rows);
   });
 
   const departmentQuestion = [
@@ -87,7 +87,7 @@ const addRole = () => {
     
     if (err) console.log({ error: err.message });
         console.log('\n \n ')
-        cTable(rows);
+        console.table(rows);
     });
 
   const roleQuestions = [
@@ -152,7 +152,7 @@ const addEmployee = () => {
     
     if (err) console.log({ error: err.message });
         console.log('\n \n ')
-        cTable(rows);
+        console.table(rows);
     });
 
     const employeeQuestions = [

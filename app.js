@@ -17,8 +17,7 @@ const handleResponse = response => {
           addDepartment();
           break;
       case 'Add a role':
-          promptRemoveQuestions()
-              .then(response => handleAddRole(response.removeChoice));
+          addRole();
           break;
       case 'Add an employee':
           addEmployee()
