@@ -17,24 +17,24 @@ const viewDepartments = () => {
 
 // view all roles
 const viewRoles = () => {
-  const sql = `SELECT roles.id, title, CONCAT('$', FORMAT(salary, 0)) AS 'salary', departments.name AS department
-               FROM roles
-               LEFT JOIN departments ON roles.department_id = departments.id`;
+  const sql = `SELECT roles.id, role_title, CONCAT('$', FORMAT(salary, 0)) AS 'salary', departments.dept_name AS department
+                FROM roles
+                LEFT JOIN departments ON roles.departments_id = departments.id`;
 
   db.query(sql, (err, rows) => {
-      if (err) console.log({ error: err.message });
-      console.log('\n \n ')
-      console.table(rows);
+    if (err) console.log({ error: err.message });
+    console.table(rows);
+
   });
 }
 
 // view all employees
 const viewEmployees = () => {
-  const sql = `SELECT e.id, e.first_name AS 'first name', e.last_name AS 'last name', roles.title, departments.name AS department, CONCAT('$', FORMAT(roles.salary, 0)) AS 'salary', m.first_name AS manager
+  const sql = `SELECT e.id, e.first_name AS 'first name', e.last_name AS 'last name', roles.role_title, departments.dept_name AS department, CONCAT('$', FORMAT(roles.salary, 0)) AS 'salary', m.first_name AS manager
                FROM employees e
                LEFT JOIN employees m ON e.manager_id = m.id
                LEFT JOIN roles ON e.role_id = roles.id
-               LEFT JOIN departments ON roles.department_id = departments.id`;
+               LEFT JOIN departments ON roles.departments_id = departments.id`;
 
   db.query(sql, (err, rows) => {
       if (err) console.log({ error: err.message });
@@ -51,24 +51,34 @@ const addDepartment = () => {
     if (err) console.log({ error: err.message });
       console.log('\n \n ')
       console.table(rows);
-  });
+ 
 
-  const departmentQuestion = [
-    {
-      type: 'input',
-      name: 'departmentName',
-      message: 'Please enter the new department name',
-      validate: departmentName => {
-        if (departmentName) {
-          return true;
-        } else {
-          console.log('Please enter the name of the new department!');
-          return false;
+    const departmentQuestion = [
+      {
+        type: 'input',
+        name: 'deptName',
+        message: 'Please enter the new department name',
+        validate: deptName => {
+          if (deptName) {
+            return true;
+          } else {
+            console.log('Please enter the name of the new department!');
+            return false;
+          }
         }
       }
-    }
-  ];
-  return inquirer.prompt(departmentQuestion);
+    ];
+    inquirer.prompt(departmentQuestion)
+    .then(function (answers) {
+       
+      db.query('INSERT INTO departments (dept_name) VALUES (?)', answers.deptName)
+        
+        console.log('\n \n ')
+        console.log(`${answers.deptName} was successfully added to the departments listing!`)
+        
+    });
+    
+  });
 };
 
 
