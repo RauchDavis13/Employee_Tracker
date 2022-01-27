@@ -53,7 +53,7 @@ The purpose of this assignment, is to create a working CLI app for a user to cre
 https://github.com/RauchDavis13/Employee_Tracker.git
 
 ## Video
-https://watch.screencastify.com/v/Sj7X6scNeRntWCIQplME
+https://watch.screencastify.com/v/lGz10MHJnbAZiIANXVsc
 
 
 ## Thank you's

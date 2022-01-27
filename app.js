@@ -26,7 +26,6 @@ const appStart = () => {
     .then(response => {
         switch (response.questionStart) {
             case 'View all departments':
-              console.log('help');
                 viewDepartments();              
                 break;
             case 'View all roles':
